@@ -42,8 +42,7 @@ class Kele
 
   def create_message(recipient_id, subject, body)
     url = 'https://www.bloc.io/api/v1/messages'
-    response = Kele.post( url, values: { "sender" => @email, "recipient_id" => recipient_id, "subject" => subject, "stripped-text" => body }, headers: { "authorization" => @auth_token })
-    puts response
+    response = self.class.post( url, body: { "sender" => @email, "recipient_id" => recipient_id, "subject" => subject, "stripped-text" => body }, headers: { "authorization" => @auth_token })
   end
 
 end
